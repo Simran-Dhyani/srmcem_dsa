@@ -1,4 +1,4 @@
-## PALINDROME 
+## QUES 1
 
 class Solution {
     public boolean isPalindrome(int x) {
@@ -11,7 +11,7 @@ class Solution {
     }
 }
 
-## PALINDROMIC STRING 
+## QUES 2
 
 public class programs{
     public static void main(String[] args) {
@@ -30,5 +30,16 @@ public class programs{
         }
 
         System.out.println(isPalindrome ? "Palindrome" : "Not Palindrome");
+    }
+}
+
+## QUES 3
+
+public class programs{
+    public static void main(String[] args) {
+       int d,steps=0;
+       steps=d/5;
+       if(d%5==0) System.out.println(steps);
+       else step+1;
     }
 }
