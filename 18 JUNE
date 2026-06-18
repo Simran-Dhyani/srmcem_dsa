@@ -32,3 +32,20 @@ public class programs {
         System.out.println(second_max);
     }
 }
+
+## ques 3
+
+class Solution {
+    public boolean check(int[] nums) {
+        int count = 0;
+        int n = nums.length;
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > nums[(i + 1) % n]) {   // find peak if i is more thanm i+1
+                count++;
+            }
+        }
+
+        return count <= 1;                      // there should be only one peak
+    }
+}
