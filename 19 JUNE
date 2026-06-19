@@ -1,0 +1,106 @@
+## QUES LEETCODE 268 
+class Solution {
+    public int missingNumber(int[] nums) {
+        int n=nums.length,s=0;
+        int sum=(n*(n+1))/2;
+        for(int i=0;i<n;i++){
+            s+=nums[i];
+
+        }
+        return(sum-s);
+    }
+}
+___________________________________________________________________________________________________________________________________________________________________
+## QUES LEETCODE 33 
+
+class Solution {
+    public int search(int[] nums, int target) {
+        int pivot=findPivot(nums);
+        if(pivot==-1){
+            return binarySearch(nums,target,0,nums.length-1);
+        }
+        if(nums[pivot]==target)
+        return pivot;
+        else if(target>=nums[0])
+        return binarySearch(nums,target,0,pivot-1);
+        else
+        return binarySearch(nums,target,pivot+1,nums.length-1);
+
+    }
+     static int findPivot(int[]nums){
+        int s=0;int e=nums.length-1;
+        while(s<=e){
+            int m=(s+e)/2;
+            if(m<e&& nums[m]>nums[m+1])
+            return m;
+             if(m>s&& nums[m]<nums[m-1])
+             return m-1;
+             if(nums[m]<=nums[s])
+             e=m-1;
+             else
+             s=m+1;
+
+        }
+        return -1;
+    
+
+     }
+     static int binarySearch(int []nums,int target,int s,int e){
+        while(s<=e){
+            int m=(s+e)/2;
+            if(nums[m]==target)
+            return m;
+            else if(nums[m]>target)
+            e=m-1;
+            else
+            s=m+1;
+
+
+        }
+        return -1;
+     }
+     
+}
+
+_________________________________________________________________________________________________________________________________________________________________
+## QUES LEETCODE 35
+
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+       int s=0;
+       int e=nums.length-1;
+       while(s<=e){
+        int m=s+(e-s)/2;
+        if(nums[m]==target)
+        return m;
+        else if(target>nums[m])
+         s=m+1;
+        else
+        e=m-1;
+
+       }
+       return e+1;
+
+    }
+}
+______________________________________________________________________________________________________________________________________________________________
+## QUES LEETCODE 88
+
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
+        
+        while (j >= 0) {
+            if (i >= 0 && nums1[i] > nums2[j]) {
+                nums1[k--] = nums1[i--];
+            } else {
+                nums1[k--] = nums2[j--];
+            }
+        }
+    }
+}
+___________________________________________________________________________________________________________________________________________________________________
+
